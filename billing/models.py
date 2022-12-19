@@ -15,14 +15,12 @@ state=(
     (INACTIVE,INACTIVE)
     )
 class Customer(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,unique=True)
     created_at = models.DateField(auto_now=True)
     email=models.EmailField(max_length=50)
     phone=models.IntegerField()
     status=models.CharField(max_length=10,choices=state)
     
-
-
     def __str__(self):
         return self.name
 
@@ -31,7 +29,7 @@ UNPAID = 'unpaid'
 payment_choice=(
     (PAID,PAID),
     (UNPAID,UNPAID))
-class Subcription(models.Model):
+class Subcription(models.Model):  
     customer_name = models.CharField(max_length=50)
     from_date = models.DateField(auto_now=True)
     to_date = models.DateField()

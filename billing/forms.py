@@ -15,7 +15,7 @@ class CustomerRegistration(forms.ModelForm):
         # }
 class SubcriptionRegistration(forms.ModelForm):
     class Meta:
-        model=Customer
+        model=Subcription
         fields = '__all__'
         
         

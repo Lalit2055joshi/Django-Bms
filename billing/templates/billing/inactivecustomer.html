@@ -6,7 +6,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <!-- <th scope="col">ID</th> -->
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Created_at</th>
@@ -17,7 +17,7 @@
         <tbody>
             {% for cust in ia %}
             <tr>
-                <th scope="row">{{cust.id}}</th>
+                <!-- <th scope="row">{{cust.id}}</th> -->
                 <td>{{cust.name}}</td>
                 <td>{{cust.email}}</td>
                 <td>{{cust.created_at}}</td>
@@ -29,7 +29,7 @@
                         <input type="submit" class="btn btn-danger" value="Delete">
 
                     </form>
-                    <a href="{% url 'addandshow' %}" class="btn btn-info">Back to Home</a>
+                    <!-- <a href="{% url 'addandshow' %}" class="btn btn-info">Back to Home</a> -->
                 </td>
             </tr>
             {% endfor %}

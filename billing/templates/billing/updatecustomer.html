@@ -3,11 +3,11 @@
 <div class="row">
     <div class="col-sm-8 offset-2">
         <h4 class="alert alert-info">Update Customer Informations</h4>
-        <form action="" method="post">
+        <form action="{% url 'addandshow' %}" method="post">
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" class="btn btn-success" value="Update">
-            <a href="{% url 'addandshow' %}" class="btn btn-info">Back to Home</a>
+            <a href="{% url 'addandshowcustomer' %}" class="btn btn-info">Back to Home</a>
         </form>
 
     </div>

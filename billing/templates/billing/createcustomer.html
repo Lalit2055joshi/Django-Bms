@@ -1,0 +1,14 @@
+{% extends 'billing/base.html' %}
+{% block contant %}
+<div class="col-sm-4">
+    <h4 class="text-center alert alert-info">Add New Customer</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-success" value="Add">           
+    </form>
+    <hr>
+    <a href="{% url 'lalit' %}" class="btn btn-warning btn-sm">sendemail to deadline Subscriber</a>
+</div>
+
+{% endblock contant %}

@@ -8,11 +8,7 @@
             {{form.as_p}}
             <input type="submit" class="btn btn-success" value="Add">           
         </form>
-
-        <hr>
-        <a href="activecustomer/" class="btn btn-warning btn-sm">Paid Subscriber</a>
-        <hr>
-        <a href="inactivecustomer/" class="btn btn-warning btn-sm">Unpaid Subscriber</a>
+        
     </div>
 
     <div class="col-sm-7 offset-1">
@@ -21,7 +17,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <!-- <th scope="col">ID</th> -->
                     <th scope="col">Name</th>
                     <th scope="col">StartingDate</th>
                     <th scope="col">ToDate</th>
@@ -33,7 +29,7 @@
             <tbody>
                 {% for subs in sub %}
                 <tr>
-                    <th scope="row">{{subs.id}}</th>
+                    <!-- <th scope="row">{{subs.id}}</th> -->
                     <td>{{subs.customer_name}}</td>
                     <td>{{subs.from_date }}</td>
                     <td>{{subs.to_date}}</td>
@@ -41,8 +37,8 @@
                     <td>{{subs.status}}</td>
                     <td>{{subs.customer}}</td>
                     <td>
-                        <a href="{% url 'updatedata' subs.id %}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{% url 'deletedata' subs.id %}" method="post" class="d-inline">{% csrf_token %}
+                        <a href="{% url 'updatecustomer' subs.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{% url 'deletecustomerdata' subs.id %}" method="post" class="d-inline">{% csrf_token %}
                             <input type="submit" class="btn btn-danger" value="Delete">
                         </form>
                     </td>

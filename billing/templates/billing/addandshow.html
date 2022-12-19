@@ -1,27 +1,24 @@
 {% extends 'billing/base.html' %}
 {% block contant %}
 <div class="row">
-    <div class="col-sm-4">
+    <!-- <div class="col-sm-4">
         <h4 class="text-center alert alert-info">Add New Customer</h4>
         <form action="" method="post">
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" class="btn btn-success" value="Add">           
         </form>
-
         <hr>
-        <a href="activecustomer/" class="btn btn-warning btn-sm">Active Customer</a>
-        <hr>
-        <a href="inactivecustomer/" class="btn btn-warning btn-sm">Inactive Customer</a>
-    </div>
+        <a href="{% url 'lalit' %}" class="btn btn-warning btn-sm">sendemail to deadline Subscriber</a>
+    </div> -->
 
     <div class="col-sm-7 offset-1">
-        <h4 class="text-center alert alert-info">Show Customer Informations</h4>
+        <h4 class="text-center alert alert-info">Showing All Customer Informations</h4>
         {% if cus %}
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <!-- <th scope="col">ID</th> -->
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Created_at</th>
@@ -32,7 +29,7 @@
             <tbody>
                 {% for cust in cus %}
                 <tr>
-                    <th scope="row">{{cust.id}}</th>
+                    <!-- <th scope="row">{{cust.id}}</th> -->
                     <td>{{cust.name}}</td>
                     <td>{{cust.email}}</td>
                     <td>{{cust.created_at}}</td>
