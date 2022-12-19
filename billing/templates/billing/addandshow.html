@@ -1,0 +1,57 @@
+{% extends 'billing/base.html' %}
+{% block contant %}
+<div class="row">
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">Add New Customer</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="Add">           
+        </form>
+
+        <hr>
+        <a href="activecustomer/" class="btn btn-warning btn-sm">Active Customer</a>
+        <hr>
+        <a href="inactivecustomer/" class="btn btn-warning btn-sm">Inactive Customer</a>
+    </div>
+
+    <div class="col-sm-7 offset-1">
+        <h4 class="text-center alert alert-info">Show Customer Informations</h4>
+        {% if cus %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Created_at</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cust in cus %}
+                <tr>
+                    <th scope="row">{{cust.id}}</th>
+                    <td>{{cust.name}}</td>
+                    <td>{{cust.email}}</td>
+                    <td>{{cust.created_at}}</td>
+                    <td>{{cust.phone}}</td>
+                    <td>{{cust.status}}</td>
+                    <td>
+                        <a href="{% url 'updatedata' cust.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{% url 'deletedata' cust.id %}" method="post" class="d-inline">{% csrf_token %}
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+        <h4 class="text-center alert alert-warning">No Records</h4>
+        {% endif %}
+    </div>
+</div>
+{% endblock contant %}
