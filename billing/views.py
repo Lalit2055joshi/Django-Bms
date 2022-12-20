@@ -7,10 +7,13 @@ import ssl
 import smtplib
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='signin')
 def add_show(request):   
     cust = Customer.objects.all() 
     return render(request,'billing/addandshow.html',{'cus':cust})
+
 
 def add_customer(request):
     if request.method=='POST':
@@ -99,6 +102,7 @@ def sendemail(request):
         smtp.sendmail(email_sender,email_receiver,em.as_string())
     return render(request,'billing/Emailmessage.html')
 
+@login_required(login_url='addshow')
 def add_show_customer(request):
     if request.method=='POST':
         fom = SubcriptionRegistration(request.POST)
@@ -177,3 +181,7 @@ def get_signin(request):
     else:
         form = AuthenticationForm()
     return render(request, "billing/signin.html", {"form": form})
+
+def logoutpage(request):
+    logout(request)
+    return redirect("signin")

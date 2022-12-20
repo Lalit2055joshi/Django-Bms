@@ -32,5 +32,6 @@ urlpatterns = [
     path('lalit/',views.sendemail,name='lalit'),
     path('signup/',views.get_signup,name='signup'),
     path('signin/',views.get_signin,name='signin'),
+    path('logout/',views.logoutpage,name='logout'),
     path('createcustomer/',views.add_customer,name='createcustomer'),
 ]
