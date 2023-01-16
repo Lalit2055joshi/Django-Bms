@@ -68,6 +68,20 @@
           </nav>
         {% block contant %}
         {% endblock contant %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show message"  id="myElem" style="width: 25%; margin-left:70% ;" role="alert">
+            {{ message }}
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+      
+      <script>
+        $("#myElem").show().delay(5000).queue(function(n) {
+        $(this).hide(); n();
+      });
+      </script>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

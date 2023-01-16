@@ -1,7 +1,9 @@
 <form action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" class="btn btn-success" value="Add">           
+    <input type="submit" class="btn btn-success" value="Add">
+    <br>
+    <a href="{% url 'signup'  %}" class="btn btn-warning btn-sm">Signup</a>           
 </form>
-
+  
 

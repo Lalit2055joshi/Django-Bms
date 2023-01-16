@@ -26,10 +26,14 @@
                 <td>{{subs.status}}</td>
                 <td>{{subs.customer}}</td>
                 <td>
+                    
                     <a href="{% url 'updatecustomer' subs.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    
+                    
                         <form action="{% url 'deletecustomerdata' subs.id %}" method="post" class="d-inline">{% csrf_token %}
                             <input type="submit" class="btn btn-danger" value="Delete">
                         </form>
+                    
                     </td>
                 </tr>
                 {% endfor %}

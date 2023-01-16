@@ -24,10 +24,14 @@
                 <td>{{cust.phone}}</td>
                 <td>{{cust.status}}</td>
                 <td>
+                    
                     <a href="{% url 'updatedata' cust.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    
+                    
                     <form action="{% url 'deletedata' cust.id %}" method="post" class="d-inline">{% csrf_token %}
                         <input type="submit" class="btn btn-danger" value="Delete">
                     </form>
+                    
                 </td>
             </tr>
             {% endfor %}
